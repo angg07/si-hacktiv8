@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Learn JS Events</title>
+</head>
+<body>
+    Nama : <input type="text" id="myInput" oninput="triggerByInput(event)">
+
+    <p id="nama"></p>
+    <script>
+        let num = 0;
+        function triggerByInput(event) {
+            const name = event.target.value;
+            // num = num + 1;
+            // console.log(`[${num}] Masuk dalan Funtion`);
+            console.log(name)
+            // console.log(name.length)
+            if (name.length <= 5) {
+                console.log("Huruf masih dibawah 5") 
+            }
+
+            document.getElementById("nama").innerHTML = name
+        }
+    </script>
+</body>
+</html>

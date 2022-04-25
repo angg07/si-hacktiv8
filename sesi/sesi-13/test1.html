@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Page Title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+        <!-- <script src="main.js"></script> -->
+    </head>
+    <body>
+        Name: <input type="text" style="margin-bottom:10px" id="nameInput"> 
+            <button id="btnAdd">Add</button>
+        <ul>
+            
+        </ul>
+
+        <script>
+            let name=''
+
+            let input = document.querySelector('input')
+            input.addEventListener('input', function(e){
+                name = e.target.value
+            })
+
+            let btn = document.querySelector('button')
+            btn.addEventListener('click', function(){
+                let li = document.createElement('li')
+                li.innerHTML = `Name : ${name}`
+
+                let removeButton = document.createElement('button')
+                removeButton.setAttribute("class", "btnDelete");
+                removeButton.style.marginLeft = '5px'
+                removeButton.innerHTML = 'x'
+                li.appendChild(removeButton)
+
+                let ul = document.querySelector('ul')
+                ul.appendChild(li)
+                input.value = "";
+                removeButton.addEventListener("click", function (){
+                    li.remove();
+                })
+            })
+        </script>
+    </body>
+</html>

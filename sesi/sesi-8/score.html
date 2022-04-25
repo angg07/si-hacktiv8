@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<p>Masukkan angka dari 1 - 100</p>
+
+<button onclick="myFunction()">Cek Angka</button>
+
+<p id="demo"></p>
+
+<script>
+    function myFunction() {
+        let inputAngka = prompt("Please enter your score");
+        if (inputAngka >= 80 && inputAngka <= 100 ) {
+            alert("Your Grade is A");
+        } else if (inputAngka >= 60 && inputAngka < 80 ){
+            alert("Your Grade is B");
+        } else if (inputAngka >= 40 && inputAngka < 60 ){
+            alert("Your Grade is C");
+        } else if ( inputAngka < 40 && inputAngka > 0){
+            alert("Your Grade is D");
+        } else {
+            alert("Cannot Calculate Your Grade");
+        }
+        
+    }
+</script>
+
+</body>
+</html>

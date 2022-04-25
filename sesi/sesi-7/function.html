@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Learn JS events</title>
+    </head>
+    <body onload="loadInitHiddenMessage()">
+        <div id="hidden-message" style="margin-bottom: 20px;"
+            onmouseover="showHiddenMessage()" onmouseout="hideMessage()">
+            
+        </div>
+            NUM : <span id="numberCount">0</span>
+            <br>
+            <button onclick="Increment()"> + </button>
+            <button onclick="Decrement()"> - </button>
+
+            <script>
+                let num = 0;
+                function Increment(){
+                    num = num + 1;
+                    document.getElementById('numberCount').innerHTML = num;
+                }
+
+                function Decrement(){
+                    if (num < 1) {
+                        document.getElementById('numberCount').innerHTML = 0;
+                    } else {
+                        num = num - 1;
+                        document.getElementById('numberCount').innerHTML = num;
+                    }
+                }
+            </script>
+        <div>
+            <div id="pressed-keyboard">Pressed Keyboard: -</div>
+            Name: <input id="input-name" oninput="triggerByOnInput(event)" onkeydown="showPressedKeyboard(event)">
+            <div style="color: red; margin-top: 5px;" id="error-message"></div>
+            <button onclick="clearInput()">Clear Input</button>
+        </div>
+        
+        <script>
+            
+            function loadInitHiddenMessage() {
+                document.getElementById('hidden-message').innerHTML = 'Hover Me to Show Hidden Message!'
+            }
+            function triggerByOnInput(event) {
+                const name = event.target.value
+                console.log(name.length)
+                if (name.trim().length <= 5) {
+                    document.getElementById('error-message').innerHTML = 'Characters Should over 5'
+                } else {
+                    document.getElementById('error-message').innerHTML = ''
+                }
+            }
+            
+            function clearInput() {
+                // dapetin input value
+                const inputElement = document.getElementById('input-name')
+                // udah dapet input value, kita kosongin inputnya
+                inputElement.value = ''
+                document.getElementById('error-message').innerHTML = ''
+            }
+            
+            function showHiddenMessage() {
+                document.getElementById('hidden-message').innerHTML = 'Taaaaaaraaa you\'ve got pranked'
+            }
+            
+            function hideMessage() {
+                document.getElementById('hidden-message').innerHTML = 'Hover Me to Show Hidden Message!'
+            }
+            
+            function showPressedKeyboard(event) {
+                document.getElementById('pressed-keyboard').innerHTML = `Pressed Keyboard: ${event.code}`
+            }
+        </script>
+    </body>
+</html>

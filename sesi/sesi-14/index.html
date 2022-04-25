@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<!-- Code injected by Five-server -->
+  <script async data-id="five-server" data-file="/Users/renalapriansyah/me/hacktiv8-kampus-merdeka/sesi-14/index.html" type="application/javascript" src="/fiveserver.js"></script>
+  </head>
+<body>
+    <div>
+        Email: <input id="email" type="text">
+        <p style="color: red; display: none;" id="wrong-email">Format Email Salah</p>
+    </div>
+    <br>
+    <div>
+        Password: <input id="password" type="text">
+        <p style="color: red; display: none;" id="wrong-password">Huruf awal harus capital</p>
+    </div>
+    <br>
+    <div>
+        <button>Submit</button> <span style="color: green" id="success">SUCCESS!!</span>
+    </div>
+    
+    <script>
+        let email = ''
+        let password = ''
+        let emailInput = document.querySelector('#email')
+        let passwordInput = document.querySelector('#password')
+        let button = document.querySelector('button')
+   
+        
+        emailInput.addEventListener('input', function(e) {
+            email = e.target.value
+            
+        })
+        passwordInput.addEventListener('input', function(e) {
+            password = e.target.value
+            
+        })
+        button.addEventListener('click', function() {
+            let isEmail = /.*@.*\.(com|co)/
+            let validPassword = /^[A-Z].*/g
+            const isEmailValid = isEmail.test(email)
+            const isPasswordValid = validPassword.test(password)
+            let wrongEmail = document.querySelector('#wrong-email')
+            let wrongPassword = document.querySelector('#wrong-password')
+            
+            if(isEmailValid) {
+                wrongEmail.style.display = 'none'
+            } else {
+                wrongEmail.style.display = 'block'
+            }
+            
+            if(isPasswordValid) {
+                wrongPassword.style.display = 'none'
+            } else {
+                wrongPassword.style.display = 'block'
+            }
+        })
+    </script>
+</body>
+</html>

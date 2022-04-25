@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<button onclick="myFunction()">Cek Password</button>
+
+<p id="demo"></p>
+
+<script>
+    let rightPassword = "pass123"
+    function myFunction() {
+        let inputPassword = prompt("Please enter your password");
+        if (inputPassword == rightPassword) {
+            alert("Password Kamu benar");
+            location.replace("https://hacktiv8.com/")
+        } else{
+            alert("Password Kamu Salah");
+            location.replace("https://www.w3schools.com")
+        }
+    }
+</script>
+
+</body>
+</html>

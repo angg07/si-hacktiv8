@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <div id="num">
+        0
+    </div>
+    <div>
+        <button class="button">
+            <p>+</p>
+        </button>
+        <button class="button">-</button>
+    </div>
+
+    <script>
+
+        let num = 0
+        const divNum = document.getElementById('num')
+        const listButton = document.getElementsByClassName('button')
+        const listParagraph = document.getElementsByTagName('p')
+        const divNum1 = document.querySelector('#num')
+        const listButton1 = document.querySelectorAll('.button')
+        const paragrapah = document.querySelector('p')
+        
+        //Akses parent element
+        let body = divNum.parentElement
+
+        //akses next sibling
+        let divWithButton = divNum.nextElementSibling
+
+        //akses child elemetn
+        let listButtonIncrement = divWithButton.children
+
+        //dapetin attribute name
+        const listOfDivAttributeNames = document.querySelector('#num')
+
+        //dapetin nilai attribute dari selector
+        // const attributeValue = document.querySelector('#num').getAttribute('')
+
+        //set margin right
+        document.querySelector('#num').style.marginRight = '20px'
+
+        const createSnapshot = (currentNum, updateNum, operator) => {
+            let snapshootDiv = document.createElement('div')
+            snapshootDiv.innerHTML = `${currentNum} ${operator} 1 = ${updateNum}`
+            
+            return snapshootDiv
+        }
+
+
+        listButton[0].addEventListener('click', function () {
+            let snapshoot = createSnapshot(num, ++num, '+')
+
+            divNum.innerHTML = num
+            body.appendChild(snapshoot)
+        })
+
+        listButton[1].addEventListener('click', function () {
+            let snapshoot = createSnapshot(num, --num, '-')
+
+            divNum.innerHTML = num
+            body.appendChild(snapshoot)
+        })
+
+        //get last div from  body
+        let lastDiv = body.children[body.children.length - 1]
+
+        //
+    </script>
+</body>
+</html>
